@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片测试</title>
+    <style>
+        body { background: #111; color: #fff; padding: 20px; }
+        .test-img { max-width: 300px; margin: 10px; border: 2px solid #333; }
+        .error { color: #f44; }
+        .success { color: #4f4; }
+    </style>
+</head>
+<body>
+    <h2>图片路径测试</h2>
+    <div id="results"></div>
+    
+    <script>
+        const paths = [
+            'images/IP设计作品/趣丸/1.jpg',
+            'images/包装效果图/瑞幸/全家福.jpg',
+            'images/hero-1.jpg',
+            'images/AI/IP类/1.png'
+        ];
+        
+        const results = document.getElementById('results');
+        
+        paths.forEach(path => {
+            const div = document.createElement('div');
+            div.innerHTML = `<p>测试: ${path}</p>`;
+            
+            const img = document.createElement('img');
+            img.src = path;
+            img.className = 'test-img';
+            
+            img.onload = () => {
+                div.innerHTML += `<p class="success">✓ 加载成功 (${img.naturalWidth}x${img.naturalHeight})</p>`;
+            };
+            
+            img.onerror = () => {
+                div.innerHTML += `<p class="error">✗ 加载失败</p>`;
+            };
+            
+            div.appendChild(img);
+            results.appendChild(div);
+        });
+    </script>
+</body>
+</html>

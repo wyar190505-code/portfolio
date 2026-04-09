@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 | 3D设计师</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航 -->
+    <nav class="nav">
+        <div class="nav-logo">作品集</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#works">作品</a></li>
+            <li><a href="#ai">AI创作</a></li>
+            <li><a href="#video">视频</a></li>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- 首页 Hero -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <!-- 轮播图片 - 替换为你的作品 -->
+            <div class="slider-item active" style="background-image: url('images/hero-1.jpg');"></div>
+            <div class="slider-item" style="background-image: url('images/hero-2.jpg');"></div>
+            <div class="slider-item" style="background-image: url('images/hero-3.jpg');"></div>
+            <!-- 添加更多轮播图片可复制上方 div -->
+            
+            <!-- 遮罩 -->
+            <div class="slider-overlay"></div>
+        </div>
+        
+        <!-- 轮播指示器 -->
+        <div class="slider-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+        
+        <!-- 轮播箭头 -->
+        <button class="slider-arrow prev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="slider-arrow next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+        
+        <!-- 隐藏标题内容 -->
+        <!--
+        <div class="hero-content">
+            <p class="hero-label">3D Designer</p>
+            <h1 class="hero-title">
+                <span class="title-line">IP设计</span>
+                <span class="title-line">建模渲染</span>
+                <span class="title-line">包装设计</span>
+            </h1>
+            <p class="hero-subtitle">文创行业 · 用三维塑造品牌灵魂</p>
+            <a href="#works" class="hero-cta">
+                <span>探索作品</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+        -->
+        
+        <!-- 左下角信息 -->
+        <div class="hero-info-left">
+            <span class="info-label">IP设计</span>
+            <span class="info-dot">·</span>
+            <span class="info-label">包装设计</span>
+            <span class="info-dot">·</span>
+            <span class="info-label">视频</span>
+        </div>
+        
+        <!-- 右下角slogan -->
+        <div class="hero-slogan">永远对世界保持好奇~</div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 作品集 -->
+    <section id="works" class="works">
+        <div class="section-header">
+            <p class="section-label">Portfolio</p>
+            <h2 class="section-title">精选作品</h2>
+        </div>
+        
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <button class="tab-btn active" data-category="ip">IP设计</button>
+            <button class="tab-btn" data-category="package">包装设计</button>
+        </div>
+        
+        <!-- 项目网格 -->
+        <div class="works-grid" id="worksGrid">
+            <!-- 项目卡片将通过 JS 动态生成 -->
+        </div>
+    </section>
+
+    <!-- 项目详情弹窗 -->
+    <div class="project-modal" id="projectModal">
+        <button class="modal-close" id="modalClose">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">项目名称</h3>
+                <p class="modal-count" id="modalCount">0 张图片</p>
+            </div>
+            <div class="modal-gallery-wrapper">
+                <button class="modal-nav-btn prev" id="modalPrev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="modal-gallery" id="modalGallery">
+                    <!-- 图片将通过 JS 动态生成 -->
+                </div>
+                <button class="modal-nav-btn next" id="modalNext">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI创作 -->
+    <section id="ai" class="ai-section">
+        <div class="section-header">
+            <p class="section-label">AI Art</p>
+            <h2 class="section-title">AI创作</h2>
+        </div>
+        
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <button class="tab-btn active" data-aicategory="ip">IP类</button>
+            <button class="tab-btn" data-aicategory="icon">图标类</button>
+        </div>
+        
+        <!-- AI作品网格 -->
+        <div class="works-grid" id="aiWorksGrid">
+            <!-- AI卡片将通过 JS 动态生成 -->
+        </div>
+    </section>
+
+    <!-- 视频展示 -->
+    <section id="video" class="video-section">
+        <div class="section-header">
+            <p class="section-label">Showreel</p>
+            <h2 class="section-title">视频作品</h2>
+        </div>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/lv_0_20250627165859.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放
+                </video>
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">作品集 Showreel</h3>
+                <p class="video-desc">涵盖IP设计、建模渲染、包装设计等多类型3D作品展示</p>
+                <div class="video-tags">
+                    <span>IP设计</span>
+                    <span>建模渲染</span>
+                    <span>包装设计</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <p class="section-label">About</p>
+                <h2 class="section-title">关于我</h2>
+                <p class="about-desc">
+                    专注于文创行业的3D设计师，擅长IP角色设计、产品建模渲染及包装三维呈现。
+                    用三维语言讲述品牌故事，让创意从概念到视觉完美落地。
+                </p>
+                <div class="skills">
+                    <h3>专业技能</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">IP设计</span>
+                        <span class="skill-tag">角色建模</span>
+                        <span class="skill-tag">产品渲染</span>
+                        <span class="skill-tag">包装设计</span>
+                        <span class="skill-tag">C4D</span>
+                        <span class="skill-tag">Blender</span>
+                        <span class="skill-tag">Octane</span>
+                        <span class="skill-tag">Redshift</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="visual-frame">
+                    <img src="images/photo/IMG_20250730_113826.jpg" alt="个人照片" class="about-photo">
+                    <div class="visual-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">联系我</h2>
+            <p class="contact-desc">有项目合作或设计需求？欢迎联系</p>
+            <div class="contact-links">
+                <a href="mailto:wyar190505@gmail.com" class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">邮箱</span>
+                        <span class="contact-value">wyar190505@gmail.com</span>
+                    </div>
+                </a>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">微信</span>
+                        <span class="contact-value">jy0301</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-bg">
+            <div class="contact-orb"></div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2024 作品集. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
